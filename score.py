@@ -16,7 +16,7 @@ dbconn = mysql.connector.connect(
 
 cur =dbconn.cursor(dictionary=True)
 
-cur.execute(''' select c.msisdn from  azima._tmp_latest_loan a
+cur.execute(''' select c.msisdn, c.national_id from  azima._tmp_latest_loan a
 left join _tmp_latest_grade b
 on a.profile_id = b.profile_id
 left join v_profiles c
@@ -29,6 +29,7 @@ res = cur.fetchall()
 
 for row in res:
     # print(row)
+  national_id = f"{row['national_id']}"
   msisdn = f"{row['msisdn']}"
-  print(f"Scoring: {msisdn}")
-  print(score_user(msisdn))
+  print(f"Scoring: {msisdn}, {national_id}")
+  print(score_user(msisdn, national_id))
