@@ -16,5 +16,5 @@ def score_user(msisdn, national_id):
   })
   url = "https://preprod.senti.co.ke/api/v5/scoring/query"
   r = requests.post(url, headers=headers,data=payload)
-  print(r.text)
+  print(f"Request: {payload} Response: {r.text}")
   return r.text
