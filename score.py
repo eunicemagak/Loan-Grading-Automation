@@ -29,7 +29,7 @@ res = cur.fetchall()
 
 for row in res:
     # print(row)
-  national_id = f"{row['national_id']}"
+  id_number = f"{row['national_id']}"
   msisdn = f"{row['msisdn']}"
-  print(f"Scoring: {msisdn}, {national_id}")
-  print(score_user(msisdn, national_id))
+  print(f"Scoring: {msisdn}, {id_number}")
+  print(score_user(msisdn, id_number))

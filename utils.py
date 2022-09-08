@@ -2,6 +2,7 @@ import requests
 import json
 import schedule
 import time
+import logging
 
 def score_user(msisdn, national_id):
   headers = {
