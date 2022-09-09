@@ -4,9 +4,12 @@ import schedule
 import time
 import mysql.connector
 from utils import score_user
+import logging
 from dotenv import load_dotenv
 
 load_dotenv()
+
+logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
 dbconn = mysql.connector.connect(
     host=os.getenv('DB_HOST'),
@@ -31,5 +34,5 @@ for row in res:
     # print(row)
   id_number = f"{row['national_id']}"
   msisdn = f"{row['msisdn']}"
-  print(f"Scoring: {msisdn}, {id_number}")
-  print(score_user(msisdn, id_number))
+  logging.info(f"Scoring: {msisdn}, {id_number}")
+  logging.info(score_user(msisdn, id_number))

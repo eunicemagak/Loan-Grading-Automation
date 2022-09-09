@@ -2,6 +2,9 @@
 import os
 import mysql.connector
 from dotenv import load_dotenv
+import logging
+
+logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
 load_dotenv()
 
@@ -19,4 +22,4 @@ select * from v_profile_latest_grade
 where date(updated_at) <= current_date - 9
 group by profile_id ''')
 
-print('updated latest grades')
+logging.info('updated latest grades')

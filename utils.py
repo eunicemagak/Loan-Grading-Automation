@@ -4,6 +4,8 @@ import schedule
 import time
 import logging
 
+logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
+
 def score_user(msisdn, national_id):
   headers = {
   'Content-Type': 'application/json',
@@ -17,5 +19,5 @@ def score_user(msisdn, national_id):
   })
   url = "https://preprod.senti.co.ke/api/v5/scoring/query"
   r = requests.post(url, headers=headers,data=payload)
-  print(f"Request: {payload} Response: {r.text}")
+  logging.info(f"Request: {payload} Response: {r.text}")
   return r.text
