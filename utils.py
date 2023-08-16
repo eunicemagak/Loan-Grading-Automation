@@ -13,7 +13,7 @@ def score_user(msisdn, national_id):
   'Authorization': 'Bearer 54763|E2jmjRM7xGmfhuWdUk2pO4SyHeDauvVer9sdCzGe'
   }
   payload = json.dumps({
-  "national_id": f"{national_id}",
+  "id_number": f"{national_id}",
   "msisdn": f"{msisdn}",
   "amount": "1500"
   })
